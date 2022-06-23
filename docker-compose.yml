@@ -1,0 +1,21 @@
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: ./Dockerfile.nginx
+        networks:
+        - backend
+        - frontend
+        ports:
+        - "8080:8080"
+    nextjs:
+        build:
+            context: .
+            dockerfile: ./Dockerfile.nextjs
+        networks:
+        - backend
+
+networks:
+    backend:
+        internal: true
+    frontend:

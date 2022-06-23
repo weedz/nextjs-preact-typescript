@@ -1,0 +1,17 @@
+server {
+    listen 8080;
+
+    root /usr/app;
+
+    client_max_body_size 50M;
+
+    location / {
+        try_files /system/maintenance.html
+              $uri $uri/index.html $uri.html
+              @nextjs;
+    }
+
+    location @nextjs {
+        proxy_pass http://nextjs:3000;
+    }
+}
