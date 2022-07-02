@@ -1,9 +1,12 @@
-const withPreact = require('next-plugin-preact');
+import withPreact from "next-plugin-preact";
 
-module.exports = withPreact({
-    experimental: {
-        outputStandalone: true,
-    },
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = withPreact({
     /* regular next.js config options here */
-    reactStrictMode: true
+    reactStrictMode: true,
+    output: "standalone",
 });
+
+export default nextConfig;
