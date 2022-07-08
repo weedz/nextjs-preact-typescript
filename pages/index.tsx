@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
+
+// Uncomment this if `_app.tsx` uses `getInitialProps()` and this must be statically rendered
+// export async function getStaticProps() { return {props: {},} }
 
 const Home: NextPage = () => {
   return (
@@ -20,9 +22,19 @@ const Home: NextPage = () => {
 
         <nav className={styles.grid}>
           <Link href="/about">
-              <a className={styles.card}>
-                  <h2>About?</h2>
-              </a>
+            <a className={styles.card}>
+              <h2>About?</h2>
+            </a>
+          </Link>
+          <Link href="/blog/1">
+            <a className={styles.card}>
+              <h2>Blog 1</h2>
+            </a>
+          </Link>
+          <Link href="/blog/5">
+            <a className={styles.card}>
+              <h2>Blog 5</h2>
+            </a>
           </Link>
         </nav>
 
@@ -61,19 +73,6 @@ const Home: NextPage = () => {
           </a>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
